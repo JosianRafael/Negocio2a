@@ -103,7 +103,7 @@
             <!-- Left Column -->
             <div class="relative">
                 <h1 style="color: red;" class="text-4xl font-bold mb-4">Ahorramos su tiempo</h1>
-                <h2 class="text-2xl mb-8">Préstamos en linea al instante</h2>
+                <h2 class="text-2xl mb-8">Tarjeta de préstamos</h2>
                 <img src="https://www.telemundo.com/sites/nbcutelemundo/files/images/gallery/2017/02/17/mujer-feliz-con-billetes-1.jpg" alt="Persona feliz con dinero" class="w-full max-w-lg mx-auto"/>
             </div>
 
@@ -162,10 +162,6 @@
                         <div class="flex justify-between">
                             <span>Los intereses</span>
                             <span class="font-bold" id="interestAmount">RD$ 465</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span>Gastos legales</span>
-                            <span class="font-bold" id="platformFee">RD$ 100</span>
                         </div>
                     </div>
                 </div>
@@ -277,18 +273,16 @@
         const totalAmount = document.getElementById('totalAmount');
         const loanAmount = document.getElementById('loanAmount');
         const interestAmount = document.getElementById('interestAmount');
-        const platformFee = document.getElementById('platformFee');
 
         function calculateLoan() {
             const amount = parseInt(amountSlider.value);
             const days = parseInt(daysSlider.value);
 
-            // Calculate fees (with 12% monthly interest rate)
-            const monthlyInterestRate = 0.12;
+            // Calculate fees (with 10% monthly interest rate)
+            const monthlyInterestRate = 0.10;
             const dailyInterestRate = monthlyInterestRate / 30; // Asumiendo un mes de 30 días
             const interest = amount * dailyInterestRate * days;
-            const fee = 100; // Comisión fija de 100
-            const total = amount + interest + fee;
+            const total = amount + interest;
 
             // Update displays
             amountDisplay.textContent = `RD$ ${amount.toLocaleString()}`;
@@ -296,7 +290,6 @@
             totalAmount.textContent = `RD$ ${Math.round(total).toLocaleString()}`;
             loanAmount.textContent = `RD$ ${amount.toLocaleString()}`;
             interestAmount.textContent = `RD$ ${Math.round(interest).toLocaleString()}`;
-            platformFee.textContent = `RD$ ${fee.toLocaleString()}`;
         }
 
         amountSlider.addEventListener('input', calculateLoan);
@@ -318,7 +311,6 @@ Hola, estoy interesado en un préstamo. Aquí están los detalles:
 ** Monto solicitado: ${amount}
 ** Plazo: ${days}
 ** Intereses generados: ${interest}
-** Comisión: ${fee}
 ** Total a devolver: ${total}
 
 Quedo atento a su respuesta. ¡Gracias!
