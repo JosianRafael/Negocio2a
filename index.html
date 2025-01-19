@@ -136,14 +136,14 @@
                     </div>
                     <input 
                         type="range" 
-                        min="6" 
+                        min="15" 
                         max="30" 
                         value="30" 
                         class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary"
                         id="daysSlider"
                     >
                     <div class="flex justify-between text-sm text-gray-600">
-                        <span>6 días</span>
+                        <span>15 días</span>
                         <span>30 días</span>
                     </div>
                 </div>
@@ -164,8 +164,8 @@
                             <span class="font-bold" id="interestAmount">RD$ 465</span>
                         </div>
                         <div class="flex justify-between">
-                            <span>Comisión de uso de plataforma</span>
-                            <span class="font-bold" id="platformFee">RD$ 300</span>
+                            <span>Gastos legales</span>
+                            <span class="font-bold" id="platformFee">RD$ 100</span>
                         </div>
                     </div>
                 </div>
@@ -287,7 +287,7 @@
             const monthlyInterestRate = 0.12;
             const dailyInterestRate = monthlyInterestRate / 30; // Asumiendo un mes de 30 días
             const interest = amount * dailyInterestRate * days;
-            const fee = 300; // Comisión fija de 300
+            const fee = 100; // Comisión fija de 100
             const total = amount + interest + fee;
 
             // Update displays
@@ -322,6 +322,7 @@ Hola, estoy interesado en un préstamo. Aquí están los detalles:
 ** Total a devolver: ${total}
 
 Quedo atento a su respuesta. ¡Gracias!
+¡Disponible de 15 a 30 dias tambien!
     `;
 
     const encodedMensaje = encodeURIComponent(mensaje.trim());
