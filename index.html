@@ -306,16 +306,29 @@
         calculateLoan();
 
         function enviarWhatsApp() {
-            const amount = document.getElementById('amountDisplay').textContent;
-            const days = document.getElementById('daysDisplay').textContent;
-            const total = document.getElementById('totalAmount').textContent;
-            
-            const mensaje = `Hola, estoy interesado en un préstamo de ${amount} a ${days}. El total a devolver sería ${total}.`;
-            const encodedMensaje = encodeURIComponent(mensaje);
-            const whatsappURL = `https://wa.me/+18094457259?text=${encodedMensaje}`;
-            
-            window.open(whatsappURL, '_blank');
-        }
+    const amount = document.getElementById('amountDisplay').textContent;
+    const days = document.getElementById('daysDisplay').textContent;
+    const interest = document.getElementById('interestAmount').textContent;
+    const fee = document.getElementById('platformFee').textContent;
+    const total = document.getElementById('totalAmount').textContent;
+
+    const mensaje = `
+Hola, estoy interesado en un préstamo. Aquí están los detalles:
+
+** Monto solicitado: ${amount}
+** Plazo: ${days}
+** Intereses generados: ${interest}
+** Comisión: ${fee}
+** Total a devolver: ${total}
+
+Quedo atento a su respuesta. ¡Gracias!
+    `;
+
+    const encodedMensaje = encodeURIComponent(mensaje.trim());
+    const whatsappURL = `https://wa.me/+18094457259?text=${encodedMensaje}`;
+
+    window.open(whatsappURL, '_blank');
+}
     </script>
 </body>
 </html>
