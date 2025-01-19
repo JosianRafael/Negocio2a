@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon usando SVG -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23008000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='6' width='20' height='12' rx='2' ry='2' fill='%2300cc00'/><circle cx='12' cy='12' r='3' fill='%23fff'/><text x='12' y='12' font-size='3' text-anchor='middle' alignment-baseline='middle' fill='%23008000'>$</text></svg>">
+    <title>Negocio2a Inversiones</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF0000',
+                        secondary: '#FFFFFF',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="px-4 py-3 shadow-sm">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-2xl font-bold">Negocio<span class="text-primary">2a</span></span>
+                <span class="text-gray-500">Dominicana</span>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-primary">Home</a>
+                <a href="#uso" class="text-gray-600 hover:text-primary">¿Como usarlo?</a>
+                <a href="https://wa.me/+18094457259?text=Hola%20me%20gustaría%20saber%20más%20sobre%20sus%20servicios" 
+   class="block px-3 py-2 text-gray-600 hover:text-primary" 
+   target="_blank" 
+   rel="noopener noreferrer">
+    Contactos
+</a>
+
+                <a href="politicas.html" class="text-gray-600 hover:text-primary">Política de Privacidad</a>
+                <a href="terminosCondiciones.html" class="text-gray-600 hover:text-primary">Términos y Condiciones</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gray-600" id="menuButton">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <script>
+                // Esperar a que la página cargue completamente
+                document.addEventListener('DOMContentLoaded', () => {
+                    // Seleccionar el botón
+                    const paymentButton = document.getElementById('paymentButton');
+        
+                    // Agregar el evento click al botón
+                    paymentButton.addEventListener('click', () => {
+                        // Mostrar la alerta de SweetAlert2
+                        Swal.fire({
+                            title: 'Atención',
+                            text: 'Debe completar el formulario para realizar el préstamo.',
+                            icon: 'warning',
+                            confirmButtonText: 'Entendido',
+                            confirmButtonColor: '#007BFF'
+                        });
+                    });
+                });
+            </script>
+
+            <button 
+        class="hidden md:block bg-primary text-white px-6 py-2 rounded-full hover:bg-red-600 transition-colors" 
+        id="paymentButton">
+        Realizar un pago
+    </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden" id="mobileMenu">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-primary">Home</a>
+                <a href="#uso" class="block px-3 py-2 text-gray-600 hover:text-primary">¿Como usarlo?</a>
+                <a href="https://wa.me/+18094457259?text=Hola%20me%20gustaría%20saber%20más%20sobre%20sus%20servicios" 
+   class="block px-3 py-2 text-gray-600 hover:text-primary" 
+   target="_blank" 
+   rel="noopener noreferrer">
+    Contactos
+</a>
+
+                <a href="politicas.html" class="block px-3 py-2 text-gray-600 hover:text-primary">Política de Privacidad</a>
+                <a href="terminosCondiciones.html" class="block px-3 py-2 text-gray-600 hover:text-primary">Términos y Condiciones</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            <!-- Left Column -->
+            <div class="relative">
+                <h1 style="color: red;" class="text-4xl font-bold mb-4">Ahorramos su tiempo</h1>
+                <h2 class="text-2xl mb-8">Préstamos en linea al instante</h2>
+                <img src="https://www.telemundo.com/sites/nbcutelemundo/files/images/gallery/2017/02/17/mujer-feliz-con-billetes-1.jpg" alt="Persona feliz con dinero" class="w-full max-w-lg mx-auto"/>
+            </div>
+
+            <!-- Right Column - Loan Calculator -->
+            <div class="bg-gray-50 p-6 rounded-lg shadow-lg">
+                <div class="mb-8">
+                    <div class="flex justify-between mb-2">
+                        <span>Elija la cantidad</span>
+                        <span class="text-primary font-bold" id="amountDisplay">RD$ 5,000</span>
+                    </div>
+                    <input 
+                        type="range" 
+                        min="1000" 
+                        max="10000" 
+                        value="5000" 
+                        step="100" 
+                        class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary"
+                        id="amountSlider"
+                    >
+                    <div class="flex justify-between text-sm text-gray-600">
+                        <span>$1,000</span>
+                        <span>$10,000</span>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <div class="flex justify-between mb-2">
+                        <span>Elija un término</span>
+                        <span class="text-primary font-bold" id="daysDisplay">30 días</span>
+                    </div>
+                    <input 
+                        type="range" 
+                        min="6" 
+                        max="30" 
+                        value="30" 
+                        class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary"
+                        id="daysSlider"
+                    >
+                    <div class="flex justify-between text-sm text-gray-600">
+                        <span>6 días</span>
+                        <span>30 días</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg mb-6">
+                    <div class="text-center mb-4">
+                        <p class="text-gray-600">Usted devolverá</p>
+                        <p class="text-2xl font-bold text-primary" id="totalAmount">RD$ 6,815</p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span>Monto del préstamo</span>
+                            <span class="font-bold" id="loanAmount">RD$ 5,000</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Los intereses</span>
+                            <span class="font-bold" id="interestAmount">RD$ 465</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Comisión de uso de plataforma</span>
+                            <span class="font-bold" id="platformFee">RD$ 300</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="obtenerCredito" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-red-600 transition-colors flex items-center justify-center space-x-2" onclick="enviarWhatsApp()">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>Obtener un crédito</span>
+                </button>
+            </div>
+        </div>
+        <!-- How it Works Section -->
+        <section id="uso" class="py-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">¿Cómo funciona?</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="relative">
+                        <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 mx-auto">
+                            1
+                        </div>
+                        <h3 class="text-xl font-semibold text-center mb-3">Solicite su préstamo</h3>
+                        <p class="text-gray-600 text-center">Elija el monto y plazo que necesita usando nuestra calculadora.</p>
+                        <!-- Connector Line (visible only on desktop) -->
+                        <div class="hidden md:block absolute top-8 left-[60%] w-full h-0.5 bg-primary"></div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 mx-auto">
+                            2
+                        </div>
+                        <h3 class="text-xl font-semibold text-center mb-3">Complete el formulario</h3>
+                        <p class="text-gray-600 text-center">Proporcione la información necesaria para procesar su solicitud.</p>
+                        <!-- Connector Line (visible only on desktop) -->
+                        <div class="hidden md:block absolute top-8 left-[60%] w-full h-0.5 bg-primary"></div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 mx-auto">
+                            3
+                        </div>
+                        <h3 class="text-xl font-semibold text-center mb-3">Reciba aprobación y su dinero</h3>
+                        <p class="text-gray-600 text-center">Obtenga una respuesta inmediata y el dinero transferido a su cuenta.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre la página Section -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 style="color: red;" class="text-3xl font-bold text-center mb-8">Sobre Negocio2a</h2>
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="text-lg text-gray-600 mb-6">
+                Negocio2a es tu aliado financiero en la República Dominicana. Ofrecemos préstamos rápidos y seguros en línea, diseñados para satisfacer tus necesidades financieras inmediatas.
+            </p>
+            <p class="text-lg text-gray-600 mb-6">
+                Nuestra misión es proporcionar soluciones financieras accesibles y transparentes, ayudándote a superar desafíos económicos a corto plazo con facilidad y confianza.
+            </p>
+            <p class="text-lg text-gray-600">
+                Con un proceso simple y rápido, puedes obtener el dinero que necesitas en tu cuenta bancaria en cuestión de horas. En DoctorPeso, entendemos tus necesidades y estamos aquí para ayudarte a alcanzar tus metas financieras.
+            </p>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-gray-600 py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Negocio<span class="text-primary">2a</span></h3>
+                    <p class="text-sm">Préstamos rápidos y seguros en línea para todas tus necesidades financieras.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Enlaces útiles</h4>
+                    <ul class="space-y-2">
+                        <li><a href="terminosCondiciones.html" class="hover:text-primary">Términos y condiciones</a></li>
+                        <li><a href="politicas.html" class="hover:text-primary">Política de privacidad</a></li>
+                        <li><a href="index.html" class="hover:text-primary">Home</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contacto</h4>
+                    <ul class="space-y-2">
+                        <li>Teléfono: +18094457259</li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuButton = document.getElementById('menuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Loan calculator functionality
+        const amountSlider = document.getElementById('amountSlider');
+        const daysSlider = document.getElementById('daysSlider');
+        const amountDisplay = document.getElementById('amountDisplay');
+        const daysDisplay = document.getElementById('daysDisplay');
+        const totalAmount = document.getElementById('totalAmount');
+        const loanAmount = document.getElementById('loanAmount');
+        const interestAmount = document.getElementById('interestAmount');
+        const platformFee = document.getElementById('platformFee');
+
+        function calculateLoan() {
+            const amount = parseInt(amountSlider.value);
+            const days = parseInt(daysSlider.value);
+
+            // Calculate fees (with 12% monthly interest rate)
+            const monthlyInterestRate = 0.12;
+            const dailyInterestRate = monthlyInterestRate / 30; // Asumiendo un mes de 30 días
+            const interest = amount * dailyInterestRate * days;
+            const fee = 300; // Comisión fija de 300
+            const total = amount + interest + fee;
+
+            // Update displays
+            amountDisplay.textContent = `RD$ ${amount.toLocaleString()}`;
+            daysDisplay.textContent = `${days} días`;
+            totalAmount.textContent = `RD$ ${Math.round(total).toLocaleString()}`;
+            loanAmount.textContent = `RD$ ${amount.toLocaleString()}`;
+            interestAmount.textContent = `RD$ ${Math.round(interest).toLocaleString()}`;
+            platformFee.textContent = `RD$ ${fee.toLocaleString()}`;
+        }
+
+        amountSlider.addEventListener('input', calculateLoan);
+        daysSlider.addEventListener('input', calculateLoan);
+
+        // Initial calculation
+        calculateLoan();
+
+        function enviarWhatsApp() {
+            const amount = document.getElementById('amountDisplay').textContent;
+            const days = document.getElementById('daysDisplay').textContent;
+            const total = document.getElementById('totalAmount').textContent;
+            
+            const mensaje = `Hola, estoy interesado en un préstamo de ${amount} a ${days}. El total a devolver sería ${total}.`;
+            const encodedMensaje = encodeURIComponent(mensaje);
+            const whatsappURL = `https://wa.me/+18094457259?text=${encodedMensaje}`;
+            
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+</body>
+</html>
+
